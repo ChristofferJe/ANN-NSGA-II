@@ -1,6 +1,6 @@
 from population import Population
 import random
-from ANNswap import predict_swap_indices
+from ANNSwap import predict_swap_indices
 
 
 class NSGAII:
@@ -121,5 +121,6 @@ class NSGAII:
         individual.chromosome[idx1], individual.chromosome[idx2] = individual.chromosome[idx2], individual.chromosome[idx1]
 
     
+
 
 
