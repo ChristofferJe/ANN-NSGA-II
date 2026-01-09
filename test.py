@@ -28,27 +28,29 @@ def f2(chromosome, cost_matrix):
 # Initialize the problem and the ANN-NSGA-II and NSGA-II algorithms
 problem = Problem(objectives = [f1, f2], cost_matrix = cost_matrix)
 ga = NSGAII(problem, population_size=50, tournament_size=2)
-evolution_non_hybrid = Evolution(problem, ga, hybrid=False, learning_rate=0.001)
-evolution_hybrid = Evolution(problem, ga, hybrid=True, learning_rate=0.001)
+evolution_NSGAII = Evolution(problem, ga, hybrid=False, learning_rate=0.001)
+evolution_ANN_NSGAII = Evolution(problem, ga, hybrid=True, learning_rate=0.001)
 
 # Evolve both algorithms for 3000 generations
-evolution_hybrid.evolve(3000)
-evolution_non_hybrid.evolve(3000)
+evolution_NSGAII.evolve(3000)
+evolution_ANN_NSGAII.evolve(3000)
+
 
 # Test validity of final populations
-print(f"Non-hybrid population is valid: {test_valid(evolution_non_hybrid.population)}")
-print(f"Hybrid population is valid: {test_valid(evolution_hybrid.population)}")
+print(f"NSGA-II population is valid: {test_valid(evolution_NSGAII.population)}")
+print(f"ANN-NSGA-II population is valid: {test_valid(evolution_ANN_NSGAII.population)}")
 
 # Calculate the hypervolume of both final populations
-ref_point = get_reference_point(evolution_non_hybrid.population, evolution_hybrid.population)
-hv_non_hybrid = calculate_hypervolume(evolution_non_hybrid.population, ref_point)
-hv_hybrid = calculate_hypervolume(evolution_hybrid.population, ref_point)
-print(f"Non-hybrid hypervolume: {hv_non_hybrid}")
-print(f"Hybrid hypervolume: {hv_hybrid}")
+ref_point = get_reference_point(evolution_NSGAII.population, evolution_ANN_NSGAII.population)
+hv_NSGAII = calculate_hypervolume(evolution_NSGAII.population, ref_point)
+hv_ANN_NSGAII = calculate_hypervolume(evolution_ANN_NSGAII.population, ref_point)
+print(f"NSGA-II hypervolume: {hv_NSGAII}")
+print(f"ANN-NSGA-II hypervolume: {hv_ANN_NSGAII}")
 
 # Plot the final populations
 fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(10, 5))
-ax1 = plot_population(ax1, evolution_non_hybrid.population, title="Non-hybrid Evolution")
-ax2 = plot_population(ax2, evolution_hybrid.population, title="Hybrid Evolution")
+ax1 = plot_population(ax1, evolution_NSGAII.population, title="NSGA-II")
+ax2 = plot_population(ax2, evolution_ANN_NSGAII.population, title="ANN-NSGA-II")
 
 plt.show()
+
