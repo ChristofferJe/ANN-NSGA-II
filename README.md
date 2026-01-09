@@ -14,4 +14,8 @@ Below is a short description of the different classes used to implement the algo
 
 4. class **Problem** defined in `assignmentProblem.py`: this class implements the multi-objective assignment problem and can take an arbitrary number of objectives. It is also responsible for initializing individuals for the specific instance of the assignment problem through the method `generate_individual`.
 
-5. class **Individual** defined in `individual.py`:  
+5. class **Individual** defined in `individual.py`: this class implements the individuals in the population. This class stores information about the different individuals used to evolve the populations, such as chromosome, fitness, crowding distance, etc.
+
+6. class **Population** defined in `population.py`: this class implements the population which is evolved. This stores the individuals in the corresponding population and the fronts of the population when sorted into fronts using fast non-dominated sorting.
+
+7. class **SwapDataset** defined in `swapDataset.py`: this class implements the dataset used to store the offspring and corresponding swaps used to train the ANN binary-swap mutation. 
