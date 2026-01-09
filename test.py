@@ -31,7 +31,7 @@ ga = NSGAII(problem, population_size=50, tournament_size=2)
 evolution_non_hybrid = Evolution(problem, ga, hybrid=False, learning_rate=0.001)
 evolution_hybrid = Evolution(problem, ga, hybrid=True, learning_rate=0.001)
 
-# Evolce both algorithms for 3000 generations
+# Evolve both algorithms for 3000 generations
 evolution_hybrid.evolve(3000)
 evolution_non_hybrid.evolve(3000)
 
@@ -50,4 +50,5 @@ print(f"Hybrid hypervolume: {hv_hybrid}")
 fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(10, 5))
 ax1 = plot_population(ax1, evolution_non_hybrid.population, title="Non-hybrid Evolution")
 ax2 = plot_population(ax2, evolution_hybrid.population, title="Hybrid Evolution")
+
 plt.show()
