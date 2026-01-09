@@ -1,7 +1,6 @@
 from population import Population
 from swapDataset import SwapDataset
-from ANNswap import ANNSwap
-from ANNswap import train_ann_epoch
+from ANNSwap import ANNSwap, train_ann_epoch
 import torch
 
 class Evolution:
@@ -55,4 +54,5 @@ class Evolution:
             if len(self.swapDataset) >= self.batch_size:
                 for epoch in range(self.epochs):
                     train_ann_epoch(self.ANNSwap, self.optimizer, self.swapDataset, batch_size = self.batch_size)
+
 
