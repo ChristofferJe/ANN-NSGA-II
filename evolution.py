@@ -45,11 +45,6 @@ class Evolution:
         self.population = new_population
 
         # Find offspring in new generation and add to swap dataset
-        # POSSIBLE CHANGE: ONLY ADD NON-DOMINATED OFFSPRING
-        #self.GA.fast_non_dominated_sort(self.population)
-        #for individual in self.population.fronts[0]:
-            #if individual.status == 'offspring':
-             #   self.swapDataset.add(individual)
         if self.hybrid:
             for individual in self.population.individuals:
                 if individual.status == 'offspring':
