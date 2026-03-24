@@ -1,7 +1,7 @@
 # ANN-NSGA-II
 Implementation of the Artificial Neural Network (ANN) NSGA-II algorithm. 
 
-The classes in this repository is defined to implement the ANN-NSGA-II and NSGA-II algorithms as descriped in my report.
+The classes in this repository is defined to implement the ANN-NSGA-II and NSGA-II algorithms as descriped in `report.pdf`.
 The `test.py` shows how to use both the ANN-NSGA-II and NSGA-II algorithm on the instance of the assignment problem with size 200. 
 The `environment.yml` file can be used to generate an anaconda environment called "ANN-NSGA-II" with the required packages to run the code in the `test.py`. The most unusual package used is the "pygmo" package used for calculating the hypervolume. The remaining packages are all very standard. 
 
